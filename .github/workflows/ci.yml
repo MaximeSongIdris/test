@@ -9,7 +9,7 @@ on:
     branches: [ main ]
 
 jobs:
-  full_pytest_test: # runs on pushes and merges to the main branch
+  full_pytest_test: # runs on pushes and merges to main
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
@@ -31,7 +31,7 @@ jobs:
         pip install pytest
         pytest
   
-  conditional_pytest_test: # runs on pushes to the main branch
+  conditional_pytest_test: # runs on pushes to PR
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
@@ -50,7 +50,7 @@ jobs:
 
     - name: Check for changes in tests folder
       run: |
-        if git diff origin/main | grep -q "^tests/"; then
+        if git diff origin/main | grep -q "a/tests/"; then
           echo "tests folder changed"
           echo "RUN_TESTS=true" >> $GITHUB_ENV
         else
