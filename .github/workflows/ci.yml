@@ -50,7 +50,7 @@ jobs:
 
     - name: Check for changes in tests folder
       run: |
-        if git diff origin/main | grep -q "a/tests/"; then
+        if git diff main | grep -q "a/tests/"; then
           echo "tests folder changed"
           echo "RUN_TESTS=true" >> $GITHUB_ENV
         else
