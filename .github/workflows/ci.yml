@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Full pytest test:
+  full_pytest_test:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +30,7 @@ jobs:
         pip install pytest
         pytest
   
-  Partial pytest test:
+  partial_pytest_test:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
