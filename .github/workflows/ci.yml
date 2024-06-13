@@ -10,7 +10,7 @@ on:
 
 jobs:
   full_pytest_test: # runs on pushes and merges to the main branch
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
