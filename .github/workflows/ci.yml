@@ -47,7 +47,7 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Check for changes in 'tests' folder
+    - name: Check for changes in tests folder
         run: |
           if git diff origin/main | grep -q "^tests/"; then
             echo "tests folder changed"
