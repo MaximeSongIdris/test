@@ -2,6 +2,7 @@ name: Pytest CI
 
 # Runs on pushes and merges to the main branch
 # and on pushes to pull requests targeting the main branch
+on:
   push:
     branches: [ main ]
   pull_request:
