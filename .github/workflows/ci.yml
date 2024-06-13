@@ -1,6 +1,6 @@
 name: Pytest CI
 
-# Runs on pushes and merges to the main branch
+# Workflow trigger on pushes and merges to the main branch
 # and on pushes to pull requests targeting the main branch
 on:
   push:
@@ -9,7 +9,7 @@ on:
     branches: [ main ]
 
 jobs:
-  full_pytest_test:
+  full_pytest_test: # runs on pushes and merges to the main branch
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -31,7 +31,7 @@ jobs:
         pip install pytest
         pytest
   
-  conditional_pytest_test:
+  conditional_pytest_test: # runs on pushes to the main branch
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
